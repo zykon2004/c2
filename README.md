@@ -20,7 +20,7 @@ chmod +x ./c2/builder.sh
 ```
 ### Running CLI
 ```sh
-docker exec -it projects-c2-server-1 bash
+docker exec -it c2-server bash
 python cli/cli.py
 ```
 ## Running without Docker
