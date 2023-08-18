@@ -41,3 +41,31 @@ git clone --depth=1 https://github.com/zykon2004/c2-server-cli.git
  python c2-server-cli/cli/cli.py
  ``` 
   - Use CTRL + C to QUIT
+## Docker causing erros
+**Problem**:
+```sh
+failed to create network projects_c2_network: Error response from daemon: Pool overlaps with other one on this address space
+```
+Solution:
+```sh
+docker compose down
+```
+Hardcore solution (Will delete images, containers, cache)
+```sh
+docker system prune --all --force
+```
+**Problem #2**:
+```sh
+Error response from daemon: Address already in use
+```
+Solution:
+I dont know why this is happening and I was not to reproduce it consistently.
+The workaround is to close all newly created containers and start them 1 by 1 starting from the server.
+Also make sure that the port is not really used by some other process:
+```sh
+lsof -i tcp:8001
+```
+A restart to docker engine helps:
+```sh
+sudo systemctl restart docker
+```
