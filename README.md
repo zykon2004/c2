@@ -15,7 +15,6 @@
 ### Building docker compose
 ```sh
 git clone --depth=1 https://github.com/zykon2004/c2.git
-chmod +x ./c2/builder.sh
 ./c2/builder.sh
 ```
 ### Running CLI
